@@ -1,19 +1,5 @@
 #!/bin/bash
-#Set job requirements
-#SBATCH --nodes=1
-#SBATCH --ntasks=1
-#SBATCH --cpus-per-task=12
-#SBATCH --gres=gpu:1
-#SBATCH --partition=gpu
-#SBATCH --time=3:00:00
 
-#Loading modules
-module load 2022
-module load Anaconda3/2022.05
-source activate blink39
-
-# blink baseline
-# Train Biencoder model 10526
 PYTHONPATH=. python blink/biencoder/train_biencoder.py \
   --data_path data/01_blink_baseline/blink_format/random_sample/2013/ \
   --output_path /gpfs/scratch1/nodespecific/int5/pzhang/models/01_blink_baseline_2013_train_random_test_new/biencoder \
