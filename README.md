@@ -10,9 +10,8 @@ pip install -r requirements.txt
 
 ### Dataset
 [dataset](https://1drv.ms/f/s!AmzUK1WRzg4AhZJ9vJy3UnTXVCIA_g?e=afU44h)
-The code is already available and the usage instructions will be available shortly.
 
-### Training
+### Usage
 ```
 train.sh
 ```
