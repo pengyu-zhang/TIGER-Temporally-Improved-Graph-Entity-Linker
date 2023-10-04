@@ -4,7 +4,7 @@ The implementation of our approach is based on the original codebase [BLINK](htt
 
 <br><br>
 <div align="center">
-<img src="fig.png" width="800" />
+<img src="fig.png" width="400" />
 </div>
 <br><br>
 
