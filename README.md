@@ -4,7 +4,7 @@ The implementation of our approach is based on the original codebase [BLINK](htt
 
 <br><br>
 <div align="center">
-<img src="fig.png" width="400" />
+<img src="fig.png" width="800" />
 </div>
 <br><br>
 
@@ -23,9 +23,9 @@ pip install -r requirements.txt
 
 ### 2. Download the data
 
-[Our Dataset](https://1drv.ms/f/s!AmzUK1WRzg4AhZJ9vJy3UnTXVCIA_g?e=afU44h)
-[ZESHEL](https://github.com/facebookresearch/BLINK/tree/main/examples/zeshel)
-[WikiLinksNED](https://github.com/yasumasaonoe/ET4EL)
+[Our Dataset](https://1drv.ms/f/s!AmzUK1WRzg4AhZJ9vJy3UnTXVCIA_g?e=afU44h)<br>
+[ZESHEL](https://github.com/facebookresearch/BLINK/tree/main/examples/zeshel)<br>
+[WikiLinksNED](https://github.com/yasumasaonoe/ET4EL)<br>
 
 ### 3. Reproduce the experiments
 
