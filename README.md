@@ -23,7 +23,7 @@ pip install -r requirements.txt
 
 ### 2. Download the data
 
-[Our Dataset](https://1drv.ms/f/s!AmzUK1WRzg4AhZJ9vJy3UnTXVCIA_g?e=afU44h)<br>
+[Our Dataset](https://drive.google.com/drive/folders/1DeHi-cvVOAdYFA4GljaBvpuG0wiYpgch?usp=sharing)<br>
 [ZESHEL](https://github.com/facebookresearch/BLINK/tree/main/examples/zeshel)<br>
 [WikiLinksNED](https://github.com/yasumasaonoe/ET4EL)<br>
 
