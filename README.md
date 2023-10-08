@@ -16,6 +16,8 @@ Please follow the instructions next to reproduce our experiments, and to train a
 
 ### 1. Install the requirements
 
+Creating a new environment (e.g. with `conda`) is recommended. Use `requirements.txt` to install the dependencies:
+
 ```
 conda create -n tiger39 -y python=3.9 && conda activate tiger39
 pip install -r requirements.txt
@@ -26,6 +28,12 @@ pip install -r requirements.txt
 [Our Dataset](https://drive.google.com/drive/folders/1DeHi-cvVOAdYFA4GljaBvpuG0wiYpgch?usp=sharing)<br>
 [ZESHEL](https://github.com/facebookresearch/BLINK/tree/main/examples/zeshel)<br>
 [WikiLinksNED](https://github.com/yasumasaonoe/ET4EL)<br>
+
+| Download link                                                | Size |
+| ------------------------------------------------------------ | ----------------- |
+| [Our Dataset](https://drive.google.com/drive/folders/1DeHi-cvVOAdYFA4GljaBvpuG0wiYpgch?usp=sharing) | 3.12 GB            |
+| [ZESHEL](https://github.com/facebookresearch/BLINK/tree/main/examples/zeshel) | 1.55 GB            |
+| [WikiLinksNED](https://github.com/yasumasaonoe/ET4EL) | 1.1 GB             |
 
 ### 3. Reproduce the experiments
 
