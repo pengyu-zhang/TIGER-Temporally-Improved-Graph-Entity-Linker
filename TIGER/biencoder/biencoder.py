@@ -151,7 +151,7 @@ class BiEncoderRanker(torch.nn.Module):
             self,
             text_vecs,
             cand_vecs,
-            # relation_vec,  # 加入关系图1/4
+            # final_embeds_batch,  # 加入关系图1/4
             random_negs=True,
             cand_encs=None,  # pre-computed candidate encoding.
     ):
@@ -196,14 +196,14 @@ class BiEncoderRanker(torch.nn.Module):
         if random_negs:
             # train on random negatives
             return embedding_ctxt.mm(embedding_cands.t())  # 加入关系图 blink原始代码
-            # 加入关系图2/4开始
             # scores1 = embedding_ctxt.mm(embedding_cands.t())
-            # scores2 = embedding_cands.mm(relation_vec.t())
-            # scores = scores1 + scores2
-            # scores = torch.mul(embedding_cands, relation_vec)
-            # scores = torch.mm(embedding_ctxt, scores.t())
+            # scores2 = embedding_cands.mm(final_embeds_batch.t())
+            # scores2_normalized = torch.tanh(scores2) * 40  # 将 scores2 归一化到 -1 到 1 之间，然后乘以 X 来放大
+            # if scores1.shape != scores2_normalized.shape:
+            #     scores = scores1  # 如果形状不一致，直接将scores设置为scores1
+            # else:
+            #     scores = scores1 + scores2_normalized  # 如果形状一致，将scores1和scores2_normalized相加
             # return scores
-            # 加入关系图2/4结束
 
         else:
             # train on hard negatives
@@ -215,11 +215,47 @@ class BiEncoderRanker(torch.nn.Module):
 
     # label_input -- negatives provided
     # If label_input is None, train on in-batch negatives
-    def forward(self, context_input, cand_input, label_input=None):  # 加入关系图 blink原始代码
-    # def forward(self, context_input, cand_input, relation_vec, label_input=None):  # 加入关系图3/4
+    # def forward(self, context_input, cand_input, label_input=None):  # 加入关系图 blink原始代码
+    def forward(self, context_input, cand_input, step, label_input=None):  # 加入关系图3/4
+        # 加入GCN开始
+        # featuregraph_path = self.params["featuregraph_path"]
+        # structgraph_path = self.params["structgraph_path"]
+        # featuregraph_size = self.params["featuregraph_size"]
+        # structgraph_size = self.params["structgraph_size"]
+        # feature_path = self.params["feature_path"]
+        # nfeat = self.params["nfeat"]
+        # nhid1 = self.params["nhid1"]
+        # nhid2 = self.params["nhid2"]
+        # dropout = self.params["dropout"]
+        # beta = self.params["beta"]
+        # theta = self.params["theta"]
+        # model1 = SFGCN(nfeat, nhid1, nhid2, dropout)
+        # model1.cuda()
+        # # optimizer_gcn = optim.Adam(model1.parameters(), lr=0.0005, weight_decay=5e-4)
+        # # optimizer_gcn.zero_grad()
+        # sadj, fadj = load_graph(featuregraph_path, structgraph_path, featuregraph_size, structgraph_size)
+        # features = load_data(feature_path)
+        # features = features.cuda()
+        # # Save the initial node features
+        # # np.save('initial_node_features.npy', features.cpu().numpy())
+        #
+        # sadj = sadj.cuda()
+        # fadj = fadj.cuda()
+        # att, emb1, com1, com2, emb2, emb = model1(features, sadj, fadj)
+        # # Save the aggregated node features
+        # # np.save('aggregated_node_features.npy', emb.cpu().numpy())
+        # emb = emb1 + emb2 + com1 + com2
+        # final_embeds = emb
+        # 加入GCN结束
         flag = label_input is None
+
+        # batch_size = context_input.size(0)  # 获取当前批次的大小
+        # start_index = step * batch_size  # 计算当前批次在 final_embeds 中的起始索引
+        # end_index = start_index + batch_size  # 计算结束索引
+        # final_embeds_batch = final_embeds[start_index:end_index, :]  # 提取对应当前批次的嵌入
+
         scores = self.score_candidate(context_input, cand_input, flag)  # 加入关系图 blink原始代码
-        # scores = self.score_candidate(context_input, cand_input, relation_vec, flag)  # 加入关系图4/4
+        # scores = self.score_candidate(context_input, cand_input, final_embeds_batch, flag)  # 加入关系图4/4
         bs = scores.size(0)
         if label_input is None:
             target = torch.LongTensor(torch.arange(bs))
@@ -227,27 +263,6 @@ class BiEncoderRanker(torch.nn.Module):
             loss = F.cross_entropy(scores, target, reduction="mean")  # 加入GCN blink原始代码
             # loss_og = F.cross_entropy(scores, target, reduction="mean")
             # 加入GCN开始
-            # featuregraph_path = self.params["featuregraph_path"]
-            # structgraph_path = self.params["structgraph_path"]
-            # featuregraph_size = self.params["featuregraph_size"]
-            # structgraph_size = self.params["structgraph_size"]
-            # feature_path = self.params["feature_path"]
-            # nfeat = self.params["nfeat"]
-            # nhid1 = self.params["nhid1"]
-            # nhid2 = self.params["nhid2"]
-            # dropout = self.params["dropout"]
-            # beta = self.params["beta"]
-            # theta = self.params["theta"]
-            # model1 = SFGCN(nfeat, nhid1, nhid2, dropout)
-            # model1.cuda()
-            # # optimizer_gcn = optim.Adam(model1.parameters(), lr=0.0005, weight_decay=5e-4)
-            # # optimizer_gcn.zero_grad()
-            # sadj, fadj = load_graph(featuregraph_path, structgraph_path, featuregraph_size, structgraph_size)
-            # features = load_data(feature_path)
-            # features = features.cuda()
-            # sadj = sadj.cuda()
-            # fadj = fadj.cuda()
-            # att, emb1, com1, com2, emb2, emb = model1(features, sadj, fadj)
             # loss_dep = (loss_dependence(emb1, com1, structgraph_size) + loss_dependence(emb2, com2, structgraph_size)) / 2
             # loss_com = common_loss(com1, com2)
             # loss = loss_og + beta * loss_dep + theta * loss_com
