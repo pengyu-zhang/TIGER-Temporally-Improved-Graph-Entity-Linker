@@ -67,8 +67,8 @@ def evaluate(
         context_input, candidate_input, _, _ = batch  # blink原始代码
         # context_input, candidate_input, _, relation_vec, _ = batch  # 加入关系图1/6
         with torch.no_grad():
-            eval_loss, logits = reranker(context_input, candidate_input)  # blink原始代码
-            # eval_loss, logits = reranker(context_input, candidate_input, relation_vec)  # 加入关系图2/6
+            # eval_loss, logits = reranker(context_input, candidate_input)  # blink原始代码
+            eval_loss, logits = reranker(context_input, candidate_input, step)  # 加入关系图2/6
 
         logits = logits.detach().cpu().numpy()
         # Using in-batch negatives, the label ids are diagonal
@@ -241,7 +241,7 @@ def main(params):
         for step, batch in enumerate(iter_):
             batch = tuple(t.to(device) for t in batch)
             context_input, candidate_input, _, _ = batch  # blink原始代码
-            loss, _ = reranker(context_input, candidate_input)  # blink原始代码
+            loss, _ = reranker(context_input, candidate_input, step)  # blink原始代码
             # context_input, candidate_input, _, relation_vec, _ = batch  # 加入关系图5/6
             # loss, _ = reranker(context_input, candidate_input, relation_vec)  # 加入关系图6/6
 
