@@ -39,26 +39,30 @@ train.sh
 
 <table>
     <tr>
-        <td></td>
-        <td></td>
-        <td>\textbf{0}</td>
-        <td>\textbf{1}</td>
-        <td>\textbf{2}</td>
-        <td>\textbf{3}</td>
-        <td>\textbf{0}</td>
-        <td>\textbf{1}</td>
-        <td>\textbf{2}</td>
-        <td>\textbf{3}</td>
+        <td>0</td>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>0</td>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
     </tr>
     <tr>
         <td></td>
         <td></td>
-        <td>\multicolumn{4}{c|}{\textbf{Continual Entities}}</td>
-        <td>\multicolumn{4}{c}{\textbf{New Entities}}</td>
+        <td>Continual Entities</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>New Entities</td>
+        <td></td>
+        <td></td>
+        <td></td>
     </tr>
     <tr>
-        <td>\multirow{4}{*}{\textbf{@1}}</td>
-        <td>\textbf{BLINK}</td>
+        <td>@1</td>
+        <td>BLINK</td>
         <td>0.177</td>
         <td>0.181</td>
         <td>0.182</td>
@@ -70,7 +74,7 @@ train.sh
     </tr>
     <tr>
         <td></td>
-        <td>\textbf{SpEL}</td>
+        <td>SpEL</td>
         <td>0.229</td>
         <td>0.234</td>
         <td>0.228</td>
@@ -82,8 +86,8 @@ train.sh
     </tr>
     <tr>
         <td></td>
-        <td>\textbf{TIGER}</td>
-        <td>0.290</td>
+        <td>TIGER</td>
+        <td>0.29</td>
         <td>0.292</td>
         <td>0.297</td>
         <td>0.304</td>
@@ -94,20 +98,20 @@ train.sh
     </tr>
     <tr>
         <td></td>
-        <td>\textbf{Boost (\%)}</td>
+        <td>Boost (%)</td>
         <td>26.76</td>
         <td>24.83</td>
         <td>30.22</td>
         <td>37.53</td>
-        <td>8.60</td>
+        <td>8.6</td>
         <td>15.15</td>
         <td>12.47</td>
         <td>12.73</td>
     </tr>
     <tr>
-        <td>\multirow{4}{*}{\textbf{@2}}</td>
-        <td>\textbf{BLINK}</td>
-        <td>0.260</td>
+        <td>@2</td>
+        <td>BLINK</td>
+        <td>0.26</td>
         <td>0.265</td>
         <td>0.268</td>
         <td>0.263</td>
@@ -118,8 +122,8 @@ train.sh
     </tr>
     <tr>
         <td></td>
-        <td>\textbf{SpEL}</td>
-        <td>0.320</td>
+        <td>SpEL</td>
+        <td>0.32</td>
         <td>0.328</td>
         <td>0.327</td>
         <td>0.322</td>
@@ -130,7 +134,7 @@ train.sh
     </tr>
     <tr>
         <td></td>
-        <td>\textbf{TIGER}</td>
+        <td>TIGER</td>
         <td>0.404</td>
         <td>0.409</td>
         <td>0.414</td>
@@ -142,7 +146,7 @@ train.sh
     </tr>
     <tr>
         <td></td>
-        <td>\textbf{Boost (\%)}</td>
+        <td>Boost (%)</td>
         <td>26.31</td>
         <td>24.54</td>
         <td>26.54</td>
@@ -153,8 +157,8 @@ train.sh
         <td>20.32</td>
     </tr>
     <tr>
-        <td>\multirow{4}{*}{\textbf{@4}}</td>
-        <td>\textbf{BLINK}</td>
+        <td>@4</td>
+        <td>BLINK</td>
         <td>0.357</td>
         <td>0.364</td>
         <td>0.367</td>
@@ -166,22 +170,22 @@ train.sh
     </tr>
     <tr>
         <td></td>
-        <td>\textbf{SpEL}</td>
+        <td>SpEL</td>
         <td>0.429</td>
         <td>0.436</td>
-        <td>0.430</td>
+        <td>0.43</td>
         <td>0.429</td>
         <td>0.329</td>
-        <td>0.340</td>
+        <td>0.34</td>
         <td>0.333</td>
         <td>0.354</td>
     </tr>
     <tr>
         <td></td>
-        <td>\textbf{TIGER}</td>
-        <td>0.520</td>
+        <td>TIGER</td>
+        <td>0.52</td>
         <td>0.524</td>
-        <td>0.530</td>
+        <td>0.53</td>
         <td>0.543</td>
         <td>0.374</td>
         <td>0.389</td>
@@ -190,7 +194,7 @@ train.sh
     </tr>
     <tr>
         <td></td>
-        <td>\textbf{Boost (\%)}</td>
+        <td>Boost (%)</td>
         <td>21.13</td>
         <td>20.38</td>
         <td>23.23</td>
@@ -201,56 +205,56 @@ train.sh
         <td>18.79</td>
     </tr>
     <tr>
-        <td>\multirow{4}{*}{\textbf{@8}}</td>
-        <td>\textbf{BLINK}</td>
+        <td>@8</td>
+        <td>BLINK</td>
         <td>0.463</td>
         <td>0.469</td>
         <td>0.475</td>
-        <td>0.470</td>
-        <td>0.370</td>
-        <td>0.370</td>
+        <td>0.47</td>
+        <td>0.37</td>
+        <td>0.37</td>
         <td>0.374</td>
         <td>0.392</td>
     </tr>
     <tr>
         <td></td>
-        <td>\textbf{SpEL}</td>
+        <td>SpEL</td>
         <td>0.546</td>
         <td>0.544</td>
         <td>0.554</td>
         <td>0.548</td>
         <td>0.423</td>
-        <td>0.440</td>
+        <td>0.44</td>
         <td>0.439</td>
         <td>0.472</td>
     </tr>
     <tr>
         <td></td>
-        <td>\textbf{TIGER}</td>
+        <td>TIGER</td>
         <td>0.628</td>
         <td>0.632</td>
         <td>0.637</td>
         <td>0.652</td>
         <td>0.483</td>
         <td>0.498</td>
-        <td>0.490</td>
+        <td>0.49</td>
         <td>0.533</td>
     </tr>
     <tr>
         <td></td>
-        <td>\textbf{Boost (\%)}</td>
+        <td>Boost (%)</td>
         <td>15.11</td>
         <td>16.14</td>
         <td>14.97</td>
-        <td>18.90</td>
+        <td>18.9</td>
         <td>14.34</td>
         <td>13.17</td>
         <td>11.76</td>
         <td>13.04</td>
     </tr>
     <tr>
-        <td>\multirow{4}{*}{\textbf{@16}}</td>
-        <td>\textbf{BLINK}</td>
+        <td>@16</td>
+        <td>BLINK</td>
         <td>0.571</td>
         <td>0.576</td>
         <td>0.581</td>
@@ -262,7 +266,7 @@ train.sh
     </tr>
     <tr>
         <td></td>
-        <td>\textbf{SpEL}</td>
+        <td>SpEL</td>
         <td>0.645</td>
         <td>0.645</td>
         <td>0.656</td>
@@ -274,7 +278,7 @@ train.sh
     </tr>
     <tr>
         <td></td>
-        <td>\textbf{TIGER}</td>
+        <td>TIGER</td>
         <td>0.724</td>
         <td>0.728</td>
         <td>0.733</td>
@@ -286,7 +290,7 @@ train.sh
     </tr>
     <tr>
         <td></td>
-        <td>\textbf{Boost (\%)}</td>
+        <td>Boost (%)</td>
         <td>12.36</td>
         <td>12.95</td>
         <td>11.76</td>
@@ -297,10 +301,10 @@ train.sh
         <td>15.76</td>
     </tr>
     <tr>
-        <td>\multirow{4}{*}{\textbf{@32}}</td>
-        <td>\textbf{BLINK}</td>
+        <td>@32</td>
+        <td>BLINK</td>
         <td>0.675</td>
-        <td>0.680</td>
+        <td>0.68</td>
         <td>0.685</td>
         <td>0.683</td>
         <td>0.576</td>
@@ -310,7 +314,7 @@ train.sh
     </tr>
     <tr>
         <td></td>
-        <td>\textbf{SpEL}</td>
+        <td>SpEL</td>
         <td>0.732</td>
         <td>0.739</td>
         <td>0.744</td>
@@ -322,7 +326,7 @@ train.sh
     </tr>
     <tr>
         <td></td>
-        <td>\textbf{TIGER}</td>
+        <td>TIGER</td>
         <td>0.807</td>
         <td>0.809</td>
         <td>0.812</td>
@@ -334,19 +338,19 @@ train.sh
     </tr>
     <tr>
         <td></td>
-        <td>\textbf{Boost (\%)}</td>
+        <td>Boost (%)</td>
         <td>10.24</td>
         <td>9.38</td>
         <td>9.14</td>
-        <td>10.80</td>
+        <td>10.8</td>
         <td>8.27</td>
         <td>9.06</td>
         <td>10.13</td>
         <td>8.77</td>
     </tr>
     <tr>
-        <td>\multirow{4}{*}{\textbf{@64}}</td>
-        <td>\textbf{BLINK}</td>
+        <td>@64</td>
+        <td>BLINK</td>
         <td>0.769</td>
         <td>0.774</td>
         <td>0.778</td>
@@ -358,8 +362,8 @@ train.sh
     </tr>
     <tr>
         <td></td>
-        <td>\textbf{SpEL}</td>
-        <td>0.820</td>
+        <td>SpEL</td>
+        <td>0.82</td>
         <td>0.827</td>
         <td>0.825</td>
         <td>0.824</td>
@@ -370,19 +374,19 @@ train.sh
     </tr>
     <tr>
         <td></td>
-        <td>\textbf{TIGER}</td>
+        <td>TIGER</td>
         <td>0.871</td>
         <td>0.872</td>
         <td>0.874</td>
         <td>0.881</td>
         <td>0.783</td>
         <td>0.791</td>
-        <td>0.790</td>
+        <td>0.79</td>
         <td>0.813</td>
     </tr>
     <tr>
         <td></td>
-        <td>\textbf{Boost (\%)}</td>
+        <td>Boost (%)</td>
         <td>6.25</td>
         <td>5.43</td>
         <td>5.91</td>
@@ -393,10 +397,11 @@ train.sh
         <td>7.84</td>
     </tr>
     <tr>
-        <td>\multicolumn{2}{c|}{\textbf{Ave. Boost (\%)}}</td>
+        <td>Total Average Boost (%)</td>
+        <td></td>
         <td>16.88</td>
         <td>16.24</td>
-        <td>17.40</td>
+        <td>17.4</td>
         <td>20.93</td>
         <td>10.89</td>
         <td>12.39</td>
