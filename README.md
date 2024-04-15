@@ -8,7 +8,7 @@ The implementation of our approach is based on the original codebase [BLINK](htt
 </div>
 <br><br>
 
-In this work, we introduce TIGER: a Temporally Improved Graph Entity Linker. By incorporating structural information between entities into the model, we enhance the learned representation, making entities more distinguishable over time. The core idea is to integrate graph-based information onto text-based information, from which both distinct and shared embeddings based on an entities' feature and structural relationships and their interaction. Experiments on three datasets, show that our model can effectively prevent temporal degradation, demonstrating a 2.55% performance boost over a strong baseline when the time gap is one year, and an improvement to 18.83% as the interval expands to nine years.
+In this work, we introduce TIGER: a Temporally Improved Graph Entity Linker. By incorporating structural information between entities into the model, we enhance the learned representation, making entities more distinguishable over time. The core idea is to integrate graph-based information onto text-based information, from which both distinct and shared embeddings based on an entities' feature and structural relationships and their interaction. Experiments on three datasets show that our model can effectively prevent temporal degradation, demonstrating a 16.24% performance boost over the state-of-the-art in a temporal setting when the time gap is one year and an improvement to 20.93% as the gap expands to three years.
 
 ## Usage
 
