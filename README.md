@@ -27,7 +27,7 @@ pip install -r requirements.txt
 
 | Download link                                                | Size |
 | ------------------------------------------------------------ | ----------------- |
-| [Our Dataset](https://drive.google.com/drive/folders/1DeHi-cvVOAdYFA4GljaBvpuG0wiYpgch?usp=sharing) | 3.12 GB            |
+| [Our Dataset](https://zenodo.org/doi/10.5281/zenodo.10977756) | 3.12 GB            |
 | [ZESHEL](https://github.com/facebookresearch/BLINK/tree/main/examples/zeshel) | 1.55 GB            |
 | [WikiLinksNED](https://github.com/yasumasaonoe/ET4EL) | 1.1 GB             |
 
