@@ -1,0 +1,25 @@
+# Data (download via scripts/prepare_data.sh; see data/README.md)
+data/raw/
+data/processed/
+data/cache/
+
+# Experiment outputs
+outputs/
+models/
+runs/
+
+# Paper PDFs are not distributed with the repository
+*.pdf
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

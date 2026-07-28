@@ -1,0 +1,47 @@
+# Plain BLINK bi-encoder baseline without the paper's graph components,
+# for controlled comparison against configs/paper.yaml and
+# configs/default.yaml.
+run_name: baseline
+seed: 52313          # BLINK's default seed
+tf32: false          # plain fp32 matmul
+no_cuda: false
+
+model:
+  bert_model: google/bert_uncased_L-8_H-512_A-8
+  lowercase: true
+  out_dim: 1
+  add_linear: false
+
+data:
+  root: data/processed/graph_tempel
+  variant: new_entities        # training-set variant: new_entities | continual_entities
+  pretokenized: true           # Graph-TempEL ships WordPiece token lists
+  max_context_length: 128
+  max_cand_length: 128
+  use_title_in_pool: false     # candidate pool uses description text only (no title)
+  pool_text_limit: 128         # pool descriptions truncated to 128 tokens
+
+graph:
+  enabled: false               # no graph channel: plain bi-encoder
+
+train:
+  batch_size: 64
+  eval_batch_size: 16
+  learning_rate: 1.0e-5
+  num_epochs: 1
+  warmup_proportion: 0.1
+  max_grad_norm: 1.0
+  type_optimization: all_encoder_layers
+  gradient_accumulation_steps: 1
+  shuffle: false               # sequential sample order (no shuffling)
+  amp: null                    # no mixed precision
+  eval_on_validation: true
+  validation_max_samples: 4096  # diagnostic metric subsample; null = full set
+  eval_before_training: false
+  eval_encode_batch_size: 128
+
+eval:
+  top_k: 64
+  encode_batch_size: 128
+  amp: null
+  cache_pool_encodings: true

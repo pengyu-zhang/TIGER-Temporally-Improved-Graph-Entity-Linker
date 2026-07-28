@@ -1,0 +1,9 @@
+# Install PyTorch first, matching your CUDA version (or CPU), e.g.:
+#   pip install torch --index-url https://download.pytorch.org/whl/cu132
+# torch is intentionally not pinned here because the right build depends
+# on your hardware; see scripts/setup_env.sh (CUDA_TAG variable).
+transformers==5.14.1
+numpy==2.4.4
+PyYAML==6.0.3
+tqdm==4.68.4
+py7zr==1.1.3

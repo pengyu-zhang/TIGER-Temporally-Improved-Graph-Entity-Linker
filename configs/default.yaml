@@ -1,0 +1,66 @@
+# Recommended configuration: the paper's method plus engineering
+# improvements, each behind a switch. Defaults here are the
+# ablation-validated values; the mean result of this config must never
+# fall below configs/baseline.yaml.
+run_name: default
+seed: 52313
+tf32: true                     # Ampere+ TF32 matmul (quality-neutral, faster)
+no_cuda: false
+
+model:
+  bert_model: google/bert_uncased_L-8_H-512_A-8
+  lowercase: true
+  out_dim: 1
+  add_linear: false
+
+data:
+  root: data/processed/graph_tempel
+  variant: new_entities
+  pretokenized: true
+  max_context_length: 128
+  max_cand_length: 128
+  use_title_in_pool: false     # candidate-pool representation; ablation-gated
+  pool_text_limit: 128
+
+graph:
+  enabled: true
+  nhid1: 768
+  nhid2: 256
+  dropout: 0.5
+  knn_k: 3
+  combine: sum
+  normalization: symmetric
+  loss:
+    a_common: 0.5
+    b_hsic: 0.0
+    hsic_paper_scaling: true
+    chunk_rows: 2048
+  fusion:
+    mode: score_add
+    scale: 40.0
+    tanh: true
+  optimizer:
+    lr: 5.0e-4
+    weight_decay: 5.0e-4
+
+train:
+  batch_size: 64
+  eval_batch_size: 16
+  learning_rate: 1.0e-5
+  num_epochs: 1
+  warmup_proportion: 0.1
+  max_grad_norm: 1.0
+  type_optimization: all_encoder_layers
+  gradient_accumulation_steps: 1
+  shuffle: true                # randomized in-batch negatives; ablation: +2.9 r@1 pts
+  amp: null                    # bf16 TRAINING lost ~2.5 r@1 pts in ablation; fp32+TF32 wins
+  eval_on_validation: true
+  validation_max_samples: 4096  # diagnostic metric subsample; null = full set
+  eval_before_training: false
+  eval_encode_batch_size: 128
+
+eval:
+  top_k: 64
+  encode_batch_size: 128
+  amp: bf16                    # eval-only precision: effect on recall measured ~0 (+2.2x speed)
+  cache_pool_encodings: true

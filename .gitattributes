@@ -1,0 +1,9 @@
+# Shell scripts must keep LF line endings on every platform
+*.sh text eol=lf
+
+# Normalize text files
+*.py text
+*.md text
+*.yaml text
+*.yml text
+*.txt text
